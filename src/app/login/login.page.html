@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  text="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+  <ion-row justify-content-center>
+  <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+  <div class="ion-text-center">
+  <br><br><br>
+  <h4>Login Form</h4>
+  </div>
+  <br><br><br><br><br><br>
+  <div class="form">
+  <ion-item >
+  <ion-input placeholder=" Enter email" [(ngModel)]="user.email" type="email" >
+    <ion-icon name="mail-outline">
+  </ion-icon></ion-input> 
+</ion-item> <br>
+  <ion-item>
+  <ion-input placeholder=" Enter password" [(ngModel)]="user.password" type="password">
+    <ion-icon name="lock-closed-outline"></ion-icon></ion-input>
+ </ion-item> <br>
+  </div>
+  <div padding>
+  <ion-button size="large" (click)="loginUser()" expand="block">Login</ion-button>
+  <a [routerLink]="['/forgetpass']" class="small-text">Forgot Password?</a>
+  
+  </div>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,28 @@
+h4{
+    text-align: center;
+    font-size:xx-large;
+    font-style: inherit;
+    }
+    $white-color: #fff;
+    $height100: 100%;
+    ion-grid {
+    width:100%;
+    height: $height100;
+    }
+    ion-row {
+    height: $height100;
+    }
+a{
+margin-left: 55%;
+}
+ion-item{
+margin-left: 12px;
+margin-right: 12px;
+border-radius: 5px;
+border-color: rgb(249, 244, 244);
+border-width: 1px;
+border-style:solid;
+}
+ion-input{
+    display: contents;
+}

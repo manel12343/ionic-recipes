@@ -1,0 +1,44 @@
+.title {
+    margin-top:  70px;
+    margin-bottom: 80px;
+  }
+  .title p {
+    margin-top: 0 !important;
+    text-transform: lowercase;
+  }
+  .title h2{
+    text-transform: uppercase;
+  }
+  .divider {
+    display: flex;
+    &:before,
+    &:after{
+      content:  "";
+      flex: 1;
+    }
+  }
+  .line {
+    align-items: center;
+    margin: 1em -1em;
+    color: #ccc;
+    &:before,
+    &:after {
+      height: 1px;
+      margin: 0 1em;
+    }
+  }
+  .one-line {
+    &:before,
+    &:after {
+      background: #ccc;
+    }
+  }
+  .auth-form ion-grid,
+  .auth-form ion row{
+    height: 50px;
+    justify-content: center;
+  }
+  ion-img {
+    height: 20%;
+    margin-top: 20%;
+  }
