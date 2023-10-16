@@ -16,7 +16,7 @@ export class SignupPage implements OnInit {
     email: '',
     password: '',
     dateOfBirth: '',
-    gender: 'male', // Default to Male
+    gender: 'male', 
   };
   async presentToast(message: string) {
     const toast = await this.toastController.create({
@@ -32,16 +32,11 @@ export class SignupPage implements OnInit {
     await this.storage.create();
   }
   registerUser() {
-    // Save registration data in Ionic Storage
-    // Save registration data in Ionic Storage
     this.storage.get('registeredUsers').then((data: any) => {
       let registeredUsers = data || [];
       registeredUsers.push(this.user);
       this.storage.set('registeredUsers', registeredUsers).then(() => {
-        // User registration successful
         this.presentToast('Registration successful!');
-
-        // Clear the form fields after registration
         this.user = {
           username: '',
           email: '',

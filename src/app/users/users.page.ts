@@ -45,7 +45,6 @@ export class UsersPage implements OnInit {
   async editUser(user: any) {
     this.index = this.users.indexOf(user);
     console.log(user);
-    // Create a modal for editing the user
     const modal = await this.modalController.create({
       component: EditUserPage,
       componentProps: {
@@ -54,16 +53,11 @@ export class UsersPage implements OnInit {
       },
     });
   
-    // Subscribe to the modal's result
     modal.onDidDismiss().then((result) => {
       if (result.role === 'edited') {
-        // Handle the edited user data here
         const editedUserData = result.data;
-        // Update the user data in your storage or data source
       }
     });
-  
-    // Present the modal
     return await modal.present();
   }
   async showDeleteConfirmation(user: any) {
@@ -94,13 +88,7 @@ export class UsersPage implements OnInit {
     this.index = this.users.indexOf(user);
     if (this.index !== -1) {
       this.users.splice(this.index, 1);
-      // Implement additional logic to remove the user from storage or a server here
-      // For example, if you are using Ionic Storage, remove the user from storage
-      // this.storage.remove('registeredUsers');
     }
     this.storage.set('registeredUsers', this.users)
-  
-    // Optionally, you can refresh the list of users
-    // this.loadUsers();
   }
 }

@@ -28,7 +28,6 @@ export class LoginPage implements OnInit {
   }
 
   async loginUser() {
-    // For demonstration purposes, let's hard-code valid credentials.
     const storedUserData = await this.storage.get('registeredUsers');
       
     if (storedUserData) {
@@ -41,14 +40,11 @@ export class LoginPage implements OnInit {
       });
 
       if (loginSuccessful) {
-        // Successful login, navigate to another page (e.g., home page).
         this.router.navigate(['/dashboard']);
       } else {
-        // Invalid credentials, show an error message.
         this.presentToast('Invalid email or password. Please try again.');
       }
     } else {
-      // No registered users found, show an error message.
       this.presentToast('No registered users found. Please register before logging in.');
     }
   }

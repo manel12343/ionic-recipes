@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./edit-user.page.scss'],
 })
 export class EditUserPage {
-  @Input() userData: any; // Input property to receive user data
+  @Input() userData: any; 
   @Input() index: any;
   constructor(private storage: Storage,private modalController: ModalController) {
     this.initStorage();
@@ -26,7 +26,7 @@ export class EditUserPage {
     this.modalController.dismiss({
     
       role: 'edited',
-      data: this.userData, // Return the edited user data
+      data: this.userData, 
     });
   }
 }
