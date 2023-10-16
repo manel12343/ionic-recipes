@@ -23,10 +23,10 @@
    
   </ion-content>
 </ion-menu>
-<div class="ion-page" id="main-content">
+<ion-content [fullscreen]="true" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Dashboard</ion-title>
+      <ion-title>Users</ion-title>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -39,22 +39,35 @@
     <ion-row>
       <ion-col align-self-center>
         <div class="title">
-          <h2>  <ion-icon name="checkmark-circle-outline"></ion-icon> Done</h2>
-          <p>
-            Your are logged in
-          </p>
+          <h2><ion-icon name="people-outline"></ion-icon> Users</h2>
         </div>
-  </ion-col>
-  </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+<br><br><br><br><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="font-weight: bold;" size="4">Username</ion-col>
+      <ion-col style="font-weight: bold;" size="5">Email</ion-col>
+      <ion-col style="font-weight: bold;" size="2">Action</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let user of users">
+      <ion-col size="4">{{ user.username }}</ion-col>
+      <ion-col size="5">{{ user.email }}</ion-col>
+      <ion-col size="2"> 
+        <ion-button (click)="editUser(user)"><ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button (click)="showDeleteConfirmation(user)"> <ion-icon name="trash-outline"></ion-icon></ion-button>
+        </ion-col>
+    </ion-row>
   </ion-grid>
   <ion-tabs style="z-index: -5;">
     <ion-tab-bar slot="bottom">
-      <ion-tab-button [routerLink]="['/dashboard']" >
+      <ion-tab-button [routerLink]="['/dashboard']">
         <ion-icon name="home-outline"></ion-icon>
         Home
       </ion-tab-button>
       <ion-tab-button [routerLink]="['/users']">
-        <ion-icon  name="people-outline"></ion-icon>
+        <ion-icon name="people-outline"></ion-icon>
         Users
       </ion-tab-button>
       <ion-tab-button [routerLink]="['/map']">
@@ -68,4 +81,18 @@
     </ion-tab-bar>
   </ion-tabs>
 </ion-content>
-</div>
+<ion-modal id="edit-user-modal">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Edit User</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()">Close</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <!-- Modal content for editing user data -->
+    <!-- Include form fields for editing user information -->
+  </ion-content>
+</ion-modal>
+</ion-content>

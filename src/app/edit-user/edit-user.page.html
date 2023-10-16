@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit User</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <!-- Username -->
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input [(ngModel)]="userData.username" name="username" type="text"></ion-input>
+    </ion-item>
+
+    <!-- Email -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="userData.email" name="email" type="email"></ion-input>
+    </ion-item>
+
+    <!-- Date of Birth (with a standard HTML date input) -->
+    <ion-item>
+      <ion-label >Date of Birth</ion-label>
+      <input [(ngModel)]="userData.dateOfBirth" name="dateOfBirth" type="date">
+    </ion-item>
+
+    <!-- Gender -->
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-radio-group [(ngModel)]="userData.gender" name="gender">
+        <ion-item>
+          <ion-label>Male</ion-label>
+          <ion-radio value="male"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Female</ion-label>
+          <ion-radio value="female"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item>
+  </ion-list>
+
+  <!-- Save Button -->
+  <ion-button expand="full" (click)="saveChanges()">Save Changes</ion-button>
+</ion-content>
