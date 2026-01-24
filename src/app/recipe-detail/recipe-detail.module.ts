@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { MapPageRoutingModule } from './map-routing.module';
-
-import { MapPage } from './map.page';
+import { RecipeDetailPageRoutingModule } from './recipe-detail-routing.module';
+import { RecipeDetailPage } from './recipe-detail.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MapPageRoutingModule
+    RecipeDetailPageRoutingModule
   ],
-  declarations: [MapPage]
+  declarations: [RecipeDetailPage]
 })
-export class MapPageModule {}
+export class RecipeDetailPageModule {}

@@ -1,27 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Ionic Application</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Mini Recipes</ion-title>
   </ion-toolbar>
 </ion-header>
- 
-<ion-content class="auth-form">
-  <ion-grid class="ion-padding ion-text-center">
-    <ion-row>
-      <ion-col align-self-center>
-        <div class="title">
-          <h2>Bienvenue</h2>
-          <p>
-            Class L3ILC
-          </p>
+
+<ion-content class="home-content ion-padding">
+
+  <div class="welcome-section ion-text-center">
+    <h1 class="welcome-title">Bienvenue !</h1>
+    <p class="welcome-subtitle">Découvre, crée et partage tes recettes préférées</p>
+  </div>
+
+  <ion-grid class="ion-padding">
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-col size="12" size-md="6" class="ion-text-center">
+        
+        <ion-button [routerLink]="['/login']" expand="block" color="primary" class="home-btn">
+          Connexion
+        </ion-button>
+
+        <div class="divider-container">
+          <span class="divider-line"></span>
+          <span class="divider-text">ou</span>
+          <span class="divider-line"></span>
         </div>
-    <ion-button [routerLink]="['/login']" expand="block">
-      <ion-label>Connexion</ion-label>
-    </ion-button>
-    <span class="divider line one-line">or</span>
-    <ion-button [routerLink]="['/signup']" fill="clear">
-      Inscription
-    </ion-button>
-  </ion-col>
-  </ion-row>
+
+        <ion-button [routerLink]="['/signup']" expand="block" fill="outline" color="primary" class="home-btn">
+          Inscription
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
   </ion-grid>
+
 </ion-content>

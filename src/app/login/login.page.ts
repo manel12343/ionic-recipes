@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,43 +13,46 @@ export class LoginPage implements OnInit {
     email: '',
     password: '',
   };
-  ngOnInit() {
-  }
-  constructor(private router: Router,private storage:Storage, private toastController: ToastController) {
+
+  constructor(
+    private router: Router,
+    private storage: Storage,
+    private toastController: ToastController
+  ) {
     this.initStorage();
+  }
+
+  ngOnInit() {}
+
+  async initStorage() {
+    await this.storage.create();
   }
 
   async presentToast(message: string) {
     const toast = await this.toastController.create({
-      message: message,
+      message,
       duration: 3000,
       position: 'bottom',
     });
-    toast.present();
+    await toast.present();
   }
 
   async loginUser() {
-    const storedUserData = await this.storage.get('registeredUsers');
-      
-    if (storedUserData) {
-      let loginSuccessful = false;
- 
-      storedUserData.forEach((registeredUser : any) => {
-        if (registeredUser.email === this.user.email && registeredUser.password === this.user.password) {
-          loginSuccessful = true;
-        }
-      });
+    const registeredUsers = (await this.storage.get('registeredUsers')) || [];
 
-      if (loginSuccessful) {
-        this.router.navigate(['/dashboard']);
-      } else {
-        this.presentToast('Invalid email or password. Please try again.');
-      }
+    // Trouver l'utilisateur correspondant
+    const foundUser = registeredUsers.find(
+      (u: any) => u.email === this.user.email && u.password === this.user.password
+    );
+
+    if (foundUser) {
+      // Stocker l'utilisateur connecté pour récupérer ses recettes plus tard
+      await this.storage.set('currentUser', foundUser);
+
+      this.presentToast(`Bienvenue ${foundUser.username} !`);
+      this.router.navigate(['/recipes-list']);
     } else {
-      this.presentToast('No registered users found. Please register before logging in.');
+      this.presentToast('Email ou mot de passe incorrect.');
     }
-  }
-  async initStorage() {
-    await this.storage.create();
   }
 }
