@@ -6,17 +6,31 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule) },
   { path: 'signup', loadChildren: () => import('./signup/signup.module').then(m => m.SignupPageModule) },
-  { path: 'forgetpass', loadChildren: () => import('./forgetpass/forgetpass.module').then(m => m.ForgetpassPageModule) },
-  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule) },
+
+
   { path: 'users',loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule) },
-  {
-    path: 'map',
-    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
-  },
+
   {
     path: 'edit-user',
     loadChildren: () => import('./edit-user/edit-user.module').then( m => m.EditUserPageModule)
   },
+ {
+  path: 'recipes-list',
+  loadChildren: () => import('./recipes-list/recipes-list.module').then(m => m.RecipesListPageModule)
+},
+{
+  path: 'recipe-detail/:id',
+  loadChildren: () => import('./recipe-detail/recipe-detail.module').then(m => m.RecipeDetailPageModule)
+},
+{
+  path: 'create-recipe',
+  loadChildren: () => import('./create-recipe/create-recipe.module').then(m => m.CreateRecipePageModule)
+},
+{
+  path: 'create-recipe/:id',
+  loadChildren: () => import('./create-recipe/create-recipe.module').then(m => m.CreateRecipePageModule)
+}
+
 ];
 
 

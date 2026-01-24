@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { ForgetpassPageRoutingModule } from './forgetpass-routing.module';
-
-import { ForgetpassPage } from './forgetpass.page';
+import { RecipesListPageRoutingModule } from './recipes-list-routing.module';
+import { RecipesListPage } from './recipes-list.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ForgetpassPageRoutingModule
+    RecipesListPageRoutingModule
   ],
-  declarations: [ForgetpassPage]
+  declarations: [RecipesListPage]
 })
-export class ForgetpassPageModule {}
+export class RecipesListPageModule {}

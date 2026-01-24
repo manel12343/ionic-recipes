@@ -4,6 +4,10 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-button size="large" [routerLink]="['/recipes-list']" expand="block" fill="clear" style="color: black;">
+  <ion-icon slot="start" name="restaurant-outline"></ion-icon>
+  Recipes
+</ion-button>
   <ion-content class="ion-padding">
     
         <ion-button size="large" [routerLink]="['/dashboard']" expand="block" fill="clear" style="color: black;">
@@ -11,6 +15,10 @@
            Home</ion-button>
            <ion-button [routerLink]="['/users']" size="large" expand="block" fill="clear" style="color: black;">
             <ion-icon slot="start" name="people-outline"></ion-icon>
+            <ion-button size="large" [routerLink]="['/recipes-list']" expand="block" fill="clear" style="color: black;">
+  <ion-icon slot="start" name="restaurant-outline"></ion-icon>
+  Recipes
+</ion-button>
             Users</ion-button>
         <ion-button size="large" [routerLink]="['/map']" expand="block" fill="clear" style="color: black;">
           <ion-icon slot="start" name="map-outline"></ion-icon>

@@ -1,37 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button  text="Back"></ion-back-button>
-    </ion-buttons>
     <ion-title>Connexion</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
-  <ion-grid>
-  <ion-row justify-content-center>
-  <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-  <div class="ion-text-center">
-  <br><br><br>
-  <h4>Login Form</h4>
+  <div class="container">
+    <div class="form-card">
+      <div class="header-text">
+        <h2>Bienvenue</h2>
+        <p>Connectez-vous pour accéder à vos recettes</p>
+      </div>
+
+      <form class="form">
+        <!-- Email -->
+        <ion-item class="floating-label">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input placeholder="entrez votre email" [(ngModel)]="user.email" type="email" name="email"></ion-input>
+        </ion-item>
+
+        <!-- Password -->
+        <ion-item class="floating-label">
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input placeholder="••••••••" [(ngModel)]="user.password" type="password" name="password"></ion-input>
+        </ion-item>
+
+        <!-- Button -->
+        <ion-button expand="block" (click)="loginUser()" class="btn-login">Connexion</ion-button>
+
+        
+      </form>
+    </div>
   </div>
-  <br><br><br><br><br><br>
-  <div class="form">
-  <ion-item >
-  <ion-input placeholder=" Enter email" [(ngModel)]="user.email" type="email" >
-    <ion-icon name="mail-outline">
-  </ion-icon></ion-input> 
-</ion-item> <br>
-  <ion-item>
-  <ion-input placeholder=" Enter password" [(ngModel)]="user.password" type="password">
-    <ion-icon name="lock-closed-outline"></ion-icon></ion-input>
- </ion-item> <br>
-  </div>
-  <div padding>
-  <ion-button size="large" (click)="loginUser()" expand="block">Login</ion-button>
-  <a [routerLink]="['/forgetpass']" class="small-text">Forgot Password?</a>
-  
-  </div>
-  </ion-col>
-  </ion-row>
-  </ion-grid>
 </ion-content>
